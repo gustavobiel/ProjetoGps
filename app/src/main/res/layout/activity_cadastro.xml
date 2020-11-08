@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Cadastro">
+
+    <TextView
+        android:id="@+id/textViewCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:textSize="15pt"
+        android:text="@string/cadastro_de_local"
+        android:background="@color/purple_500"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Local"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCadastro"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLocal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextLat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Latitude"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextData"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextLong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Longitude"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descricao"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLong"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="salvar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        android:text="SALVAR"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDesc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
