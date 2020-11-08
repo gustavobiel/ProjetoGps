@@ -2,8 +2,11 @@ package com.example.projetogps;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,17 +24,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         locationManager = (LocationManager)
                 getSystemService(Context.LOCATION_SERVICE);
+        locationListener = location -> {
+
+        };
     }
 
-    class MinhaImplementacao implements LocationListener{
+    @Override
+    protected void onStart() {
+        super.onStart();
+            if(ActivityCompat.checkSelfPermission
+                    (this.Manifest.permission.ACESS_FILE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                locationManager.requestLocationUpdates(
+                        LocationManager.GPS_PROVIDER,
+                        5000, 5,
+                        locationListener
+                );
+            }
+        else{
+            ActivityCompat.requestPermissions
+                    (this,
+                    new String [] {Manifest.permission.ACCESS_FINE_LOCATION}
+                    1043
+                    );
+            }
 
-
-        @Override
-        public void onLocationChanged(@NonNull Location location) {
-
-        }
     }
-
 
     public void novoLugar(View view) {
     }
