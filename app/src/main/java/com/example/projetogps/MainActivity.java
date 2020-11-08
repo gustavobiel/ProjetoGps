@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.requestLocationUpdates(
                     LocationManager.GPS_PROVIDER,
                     5000,
@@ -51,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ActivityCompat.requestPermissions
                     (this,
-                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION}
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             GPS_REQUEST_PERMISSION_CODE
                     );
         }
 
     }
 
-    @Override
+    //@Override
     public void onLocationChanged(Location location) {
         double lat = location.getLatitude();
         double lon = location.getLongitude();
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == GPS_REQUEST_PERMISSION_CODE) {
-            if (grantResults.length > && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     locationManager.requestLocationUpdates(
