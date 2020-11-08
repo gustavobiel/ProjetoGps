@@ -12,6 +12,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,17 +20,22 @@ public class MainActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
     private static final int GPS_REQUEST_PERMISSION_CODE = 1001;
+    private TextView localTextView;
+    private double latitudeAtual;
+    private double longitudeAtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        localTextView = findViewById(R.id.localTextView);
         locationManager = (LocationManager)
                 getSystemService(Context.LOCATION_SERVICE);
         locationListener = location -> {
 
         };
     }
+
 
     @Override
     protected void onStart() {
@@ -52,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onLocationChanged(Location location) {
+        double lat = location.getLatitude();
+        double lon = location.getLongitude();
+        latitudeAtual = lat;
+        longitudeAtual = lon;
+        localTextView.setText(String.format("Lat: %f, Long: %f", lat,
+                lon));
+    }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == GPS_REQUEST_PERMISSION_CODE) {
@@ -77,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         locationManager.removeUpdates(locationListener);
     }
+
 
 }
 
