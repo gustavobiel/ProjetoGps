@@ -17,9 +17,7 @@ public class Cadastro extends AppCompatActivity {
     public void salvar(View view) {
     }
 
-    public void novoLocal (View view){
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
+
+
 
 }
