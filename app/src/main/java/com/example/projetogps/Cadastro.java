@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 
-
 public class Cadastro extends AppCompatActivity {
     public static final int DEFAULT_UPDATE_INTERVAL = 3;
     public static final int FAST_UPDATE_INTERVAL = 5;
