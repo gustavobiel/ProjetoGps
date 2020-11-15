@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  LocationListener{
 
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //@Override
+    @Override
     public void onLocationChanged(Location location) {
         double lat = location.getLatitude();
         double lon = location.getLongitude();
