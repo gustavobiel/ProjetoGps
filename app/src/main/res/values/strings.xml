@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ProjetoGps</string>
     <string name="cadastro_de_local">Cadastro de local</string>
+    <string name="local">Local</string>
+    <string name="data">Data</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="descricao">Descricao</string>
+    <string name="salvar">SALVAR</string>
+    <string name="cadastrar_novo_local">cadastrar novo local</string>
 </resources>
