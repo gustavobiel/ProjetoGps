@@ -1,0 +1,6 @@
+com/example/projetogps/Cadastro.java
+ com.example.projetogps.Cadastro
+com/example/projetogps/BuildConfig.java
+ com.example.projetogps.BuildConfig
+com/example/projetogps/MainActivity.java
+ com.example.projetogps.MainActivity
