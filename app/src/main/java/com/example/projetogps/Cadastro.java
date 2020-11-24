@@ -13,18 +13,30 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cadastro extends AppCompatActivity implements LocationListener {
 
+
+
+
+    private EditText editTextLocal;
+    private EditText editTextDesc;
+    private EditText editTextLat;
+    private EditText editTextLong;
+    private EditText editTextData;
     private TextView latitudeTextView;
     private TextView longitudeTextView;
     private TextView dataTextView;
 
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -42,6 +54,14 @@ public class Cadastro extends AppCompatActivity implements LocationListener {
      * @param view
      */
     public void salvar(View view) {
+    Localizacao localizacao = new Localizacao();
+    String local = editTextLocal.getEditableText().toString();
+    String data = editTextData.getEditableText().toString();
+    String lat = editTextLat.getEditableText().toString();
+    String lon = editTextLong.getEditableText().toString();
+    String desc = editTextDesc.getEditableText().toString();
+    localizacao.setLocal(local);
+    db.collection("lugares").document().set(localizacao);
 
     }
 
@@ -53,6 +73,9 @@ public class Cadastro extends AppCompatActivity implements LocationListener {
         latitudeTextView = findViewById(R.id.editTextLat);
         longitudeTextView = findViewById(R.id.editTextLong);
         dataTextView= findViewById(R.id.editTextData);
+        editTextLocal= findViewById(R.id.editTextLocal);
+        editTextDesc = findViewById(R.id.editTextDesc);
+        editTextData = findViewById(R.id.editTextData);
 
 
         locationManager = (LocationManager)
