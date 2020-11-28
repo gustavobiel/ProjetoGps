@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -91,6 +92,17 @@ public class ListActivity extends AppCompatActivity {
                         }
 
                         adapter = new CustomAdapter(ListActivity.this, modelList);
+                        adapter.setOnItemClickListener(new CustomAdapter.ClickListener() {
+                            @Override
+                            public void onItemClick(int position, View v) {
+                                Log.d("RESULTADO", "onItemClick position: " + position);
+                            }
+
+                            @Override
+                            public void onItemLongClick(int position, View v) {
+                                Log.d("RESULTADO", "onItemLongClick pos = " + position);
+                            }
+                        });
 
                         mRecyclerView.setAdapter(adapter);
 
