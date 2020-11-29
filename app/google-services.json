@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1019063202228",
+    "firebase_url": "https://projetogps-d4cdf.firebaseio.com",
+    "project_id": "projetogps-d4cdf",
+    "storage_bucket": "projetogps-d4cdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019063202228:android:d363fbc70326e0064dc2e1",
+        "android_client_info": {
+          "package_name": "com.example.projetogps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019063202228-qb2j4qmlnkph3im1q0egfnfe48ish3e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfW0Z9fI51SxPgGJdJKqAaNClB-Yx-lm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019063202228-qb2j4qmlnkph3im1q0egfnfe48ish3e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
