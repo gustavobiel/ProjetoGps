@@ -77,6 +77,7 @@ public class ListActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        modelList.clear();
                         pd.dismiss();
 
                         for (DocumentSnapshot doc:task.getResult()){
@@ -103,6 +104,32 @@ public class ListActivity extends AppCompatActivity {
 
                         Toast.makeText(ListActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
+                    }
+                });
+    }
+
+    public void deleteData(int index){
+        pd.setTitle("Deletando...");
+        pd.show();
+
+        db.collection("Documents").document(modelList.get(index).getId())
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        //chamado quando o delte funcionou 
+                        Toast.makeText(ListActivity.this, "Deletado...", Toast.LENGTH_SHORT).show();
+                        showData();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //chamado quando ocorre algum erro
+                        pd.dismiss();
+                        //ai mostrara a mensagem de erro
+                        Toast.makeText(ListActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

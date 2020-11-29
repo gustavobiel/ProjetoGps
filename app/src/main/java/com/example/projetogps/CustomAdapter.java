@@ -1,6 +1,8 @@
 package com.example.projetogps;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,21 @@ public class CustomAdapter extends RecyclerView.Adapter<ViewHolder> {
 
            @Override
            public void onItemLongClick(View view, int position) {
+               //isso vai ser chamado quando usado o long click
+
+               //criando um alerta
+               AlertDialog.Builder builder = new AlertDialog.Builder(listActivity);
+               //opção de delete
+               String[] options = {"Deletar"};
+               builder.setItems(options, new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0){
+                            // deletar
+                            listActivity.deleteData(position);
+                        }
+                   }
+               }).create().show();
 
            }
        });
